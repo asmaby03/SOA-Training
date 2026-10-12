@@ -44,4 +44,11 @@ public Response getListModule()
     public Response getModulesByType(@QueryParam("type") Module.TypeModule type) {
         return Response.ok(helper.getModulesByType(type)).build();
     }
+    @DELETE
+    public Response deleteByMatricule(@QueryParam("matricule") String matricule) {
+        if (helper.deleteModule(matricule)) {
+            return Response.status(200).build();
+        }
+        return Response.status(404).build();
+    }
 }
