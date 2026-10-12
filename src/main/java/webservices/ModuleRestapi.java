@@ -39,4 +39,9 @@ public Response getListModule()
         }
         return Response.ok(m).build();
     }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getModulesByType(@QueryParam("type") Module.TypeModule type) {
+        return Response.ok(helper.getModulesByType(type)).build();
+    }
 }
